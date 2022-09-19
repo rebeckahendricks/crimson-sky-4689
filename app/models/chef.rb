@@ -4,8 +4,8 @@ class Chef < ApplicationRecord
 
   def unique_ingredients
     dishes
+    .select('ingredients.*')
     .joins(:ingredients)
     .distinct
-    .pluck('ingredients.name')
   end
 end

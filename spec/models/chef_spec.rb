@@ -31,7 +31,7 @@ RSpec.describe Chef, type: :model do
 
     describe '#unique_ingredients' do
       it 'can create a unique list of all ingredients a chef uses in all of their dishes' do
-        expect(@chef.unique_ingredients).to eq([@beef.name, @mushroom.name, @pasta.name, @pate.name])
+        expect(@chef.unique_ingredients.pluck('ingredients.name')).to eq([@beef.name, @mushroom.name, @pasta.name, @pate.name])
       end
     end
   end
